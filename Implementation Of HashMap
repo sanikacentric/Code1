@@ -1,0 +1,66 @@
+package SeptemberSelenium.SeptemberSelenium;
+import java.util.HashMap;
+import java.util.LinkedList;
+public class implementationofhashmapdesign {
+LinkedList<Entry>[] map;
+int size=769;
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	public implementationofhashmapdesign() {
+		this.map= new LinkedList[size];
+		
+	}
+	public void put (int key, int value) {
+		int bucket = key%size;
+		if(map[bucket]==null) {
+			map[bucket]= new LinkedList<Entry>();
+			map[bucket].add(new Entry(key,value));
+		}
+		for(Entry entry : map[bucket]) {
+			if(entry.key==key) {
+				entry.value=value;
+			}
+			map[bucket].add(new Entry(key,value));
+		}
+	}
+	public int get(int key) {
+		int bucket = key%size;
+		LinkedList<Entry>entries= map[bucket];
+		if(entries==null) {
+			return -1;
+		}
+		for(Entry entry :map[bucket]) {
+			if(entry.key==key) {
+				return entry.value;
+			}
+		}
+		return -1;
+	}
+	public void remove (int key) {
+		int bucket = key%size;
+		Entry toRemove=null;
+		if(map[bucket]==null) {
+			return ;
+		}
+		for(Entry entry :map[bucket]) {
+			if(entry.key==key) {
+				toRemove=entry;
+			}
+			if(toRemove==null) {
+				return;
+			}
+			map[bucket].remove(toRemove);
+		}
+		
+	}
+public class Entry{
+	int key;
+	int value;
+	public Entry(int key, int value){
+		this.key= key;
+		this.value= value;
+	}
+}
+}
