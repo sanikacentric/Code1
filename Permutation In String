@@ -1,0 +1,49 @@
+package SeptemberSelenium.SeptemberSelenium;
+
+public class permutaion {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+public static boolean ispermutation(String s1, String s2) {
+	if(s2.length()==0 ||s2==null ||s1.length()>s2.length()) {
+		return false;
+	}
+	//initialise the array
+	
+	int [] s1array= new int [26];
+
+	int [] s2array= new int [26];
+	
+	//map the characters in the array
+	for(int i=0;i<s1.length();i++) {
+		s1array[s1.charAt(i)-'a']++;
+		s2array[s2.charAt(i)-'a']++;
+	}
+	
+	// create window and check for permutation
+	for(int i=0;i<s2.length()-s1.length();i++) {
+		if(ispermutation(s1array,s2array)){
+			return true;
+		}
+		//removechar from s2array and then increase char for s2array and retain the length of window
+		s2array[s2.charAt(i)-'a']--;
+		s2array[s2.charAt(i+s1.length())-'a']++;
+		
+		if(ispermutation(s1array,s2array)){
+			return true;
+		}
+	}
+	return false;
+	
+}
+private static boolean ispermutation(int[] s1array, int[] s2array) {
+	for(int i=0;i<s1array.length;i++) {
+		if(s1array[i]!=s2array[i]) {
+			return false;
+		}
+	}
+	return true;
+}
+}
