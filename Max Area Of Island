@@ -1,0 +1,38 @@
+package SeptemberSelenium.SeptemberSelenium;
+import java.util.*;
+public class maxsarrsr {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+public static int maxarea(int [][] grid) {
+	int m = grid.length;//row length
+	int n= grid[0].length;//col length
+	int maxarea=0;
+	HashSet<Integer>set = new HashSet<>();// to avoid duplicates
+	for(int i=0;i<m;i++) {
+		for(int j=0;j<n;j++) {
+			if(grid[i][j]==1) {
+				maxarea = Math.max(maxarea, dfs(i,j,m,n,grid, set, new int [0]));
+			}
+		}
+	}
+	return maxarea;
+}
+private static int dfs(int i, int j, int m, int n, int[][] grid, HashSet<Integer> set, int[] count) {
+	if(i<0 ||j<0 ||i>=grid.length ||j>=grid[0].length|| grid[i][j]==0 || set.contains(grid[i][j])) {
+		return 0;
+	}
+	
+	set.add(grid[i][j]);
+	count[0]++;
+	dfs(i+1,j,m,n,grid, set, count);
+	dfs(i,j+1,m,n,grid, set, count);
+	dfs(i-1,j,m,n,grid, set, count);
+	 dfs(i,j-1,m,n,grid, set, count);
+	 return count[0];
+	
+	
+}
+}
