@@ -1,0 +1,25 @@
+public class Twosum2inputarrayss {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+public static int[] Twosumtwo(int [] nums, int target) {
+	int leftpointer = 0;
+	int rightpointer = nums.length-1;
+	while(leftpointer<rightpointer) {
+		int a = nums[leftpointer];
+		int b = nums[rightpointer];
+		if(a+b==target) {
+			break;
+		}
+		if(a+b>target) {
+			rightpointer--;
+		}
+		else {
+			leftpointer++;
+		}
+	}
+	return new int [] {leftpointer+1, rightpointer+1};
+}
+}
