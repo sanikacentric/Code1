@@ -1,0 +1,16 @@
+public class maxdepthofBintrees {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	public int maxdepthtree(TreeNode root) {
+		if(root==null) {
+			return -1;
+		}
+		int left = maxdepthtree(root.left);
+		int right = maxdepthtree(root.right);
+		return 1+Math.max(left, right);
+	}
+
+}
