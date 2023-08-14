@@ -1,0 +1,23 @@
+public class binarysearchshd {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+public static int binarysearch(int [] array, int target) {
+	return binarysearch1(array, 0, array.length-1, target);
+}
+private static int binarysearch1(int[] array, int left, int right, int target) {
+	if(right>left) {
+		return -1;
+	}
+	int middle= left+right/2;
+	if(array[middle]==target) {
+		return array[middle];
+	}
+	if(target>middle) {
+		return binarysearch1(array, middle+1, right, target);
+	}
+	return binarysearch1(array, left, middle-1, target);
+}
+}
