@@ -1,0 +1,27 @@
+import java.util.HashSet;
+public class longconse {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+public static int longcon(int [] nums) {
+	HashSet<Integer>set = new HashSet<>();
+	for(int n:nums) {
+		set.add(n);
+	}
+	int longseq=1;
+	for(int n:set ) {
+		if(set.contains(n-1)) {
+			
+			int currseq= 1;
+			if(set.contains(n+1)) {
+				currseq=currseq+1;
+				longseq= Math.max(longseq, currseq);
+			}
+		
+	}
+		
+}
+	return longseq;
+}
