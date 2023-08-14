@@ -1,0 +1,41 @@
+
+public class balancedbinanarytrese {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+public class TreeNode{
+	int val;
+	TreeNode left;
+	TreeNode right;
+	
+	public TreeNode() {
+		
+	}
+	
+	public TreeNode(int val) {
+		this.val= val;
+		
+	}
+	public TreeNode (int val, TreeNode left, TreeNode right) {
+		this.val= val;
+		this.left= left;
+		this.right = right;
+	}
+	public int heights(TreeNode root) {
+		if(root==null) {
+			return -1;
+		}
+		return 1+Math.max(heights(root.left), heights(root.right));
+	}
+	public boolean balancedbinarytres(TreeNode root) {
+		if(root==null) {
+			return true;
+		}
+		return Math.abs(heights(right)- heights(left))<=2 &&balancedbinarytres(root.left)&& balancedbinarytres(root.right);
+	}
+	
+}
+}
+//Time complexity: O(nlogn)
