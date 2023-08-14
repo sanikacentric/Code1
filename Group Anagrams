@@ -1,0 +1,22 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+public class GroupAnagramsd {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+public static List<List<String>>groupanagrams(String[] strs){
+	HashMap<String, List<String>>group = new HashMap<>();
+	for(String s:strs) {
+		char ch [] = s.toCharArray();
+		Arrays.sort(ch);
+		String key = String.valueOf(ch);// generate key using sorted array
+		group.putIfAbsent(key, new ArrayList<>());
+		group.get(key).add(s);
+	}
+	return new ArrayList<>(group.values());
+}
+}
