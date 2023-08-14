@@ -1,0 +1,33 @@
+import java.util.List;
+import java.util.Queue;
+import java.util.ArrayList;
+import java.util.LinkedList;
+public class binaryleveliorderr {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+public List<List<Integer>>balalncedbintree(TreeNode root){
+	List<List<Integer>>res = new ArrayList<>();
+	if(root==null) {
+		return null;
+	}
+	Queue<TreeNode>queue = new LinkedList<>();
+	queue.add(root);
+	while(!queue.isEmpty()) {
+		List<Integer>level = new ArrayList<>();
+		TreeNode curr = queue.poll();
+		level.add(curr.val);
+		if(curr.left !=null) {
+			queue.add(curr.left);
+		}
+		if(curr.left !=null) {
+			queue.add(curr.left);
+		}
+		res.add(level);
+	}
+	return res;
+	
+}
+}
