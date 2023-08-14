@@ -1,0 +1,16 @@
+public class reverseLinkedLists {
+
+public static ListNode reverselinkedlist(ListNode head) {
+	ListNode currNode = head;
+	ListNode prevNode = head;
+	while(currNode!=null) {
+		ListNode nextNode = currNode.next;
+		currNode.next = prevNode;
+		prevNode= currNode;
+		currNode= nextNode;
+		
+	}
+	return prevNode;
+	
+}
+}
