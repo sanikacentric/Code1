@@ -1,0 +1,46 @@
+package SeptemberSelenium.SeptemberSelenium;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class add3sum333 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+public static List<List<Integer>>add3sum(int [] nums){
+	Arrays.sort(nums);
+	List<List<Integer>>sol = new ArrayList<>();
+	for(int i=0;i<nums.length;i++) {
+		if(i==0 ||i>0||nums[i]!=nums[i-1]) {
+			int target = 0-nums[i];
+			int left = nums[i+1];
+			int right = nums[nums.length-1];
+			
+			while(left<right) {
+				if(nums[left]+nums[right]==target) {
+					List<Integer>minisol = new ArrayList<>();
+					minisol.add(nums[i]);
+					minisol.add(left);
+					minisol.add(right);
+					sol.add(minisol);
+				}
+				while(left<right ||nums[left]==nums[left-1]) {
+					left++;
+				}
+				while(left<right ||nums[right]==nums[right+1]) {
+					right++;
+				}
+				if(nums[left]+nums[right]>target) {
+					right--;
+				}
+				left++;
+			}
+			
+		}
+	}
+	return sol;
+	
+}
+}
