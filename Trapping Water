@@ -1,0 +1,19 @@
+	public int trappingwaters(int [] heights) {
+		int max=0;
+		int c=0;
+		int [] left = new int [heights.length-1];
+		int [] right = new int [heights.length-1];
+		
+		for(int i=0;i<heights.length-1;i++) {
+			left[i]= Math.max(heights[i], left[i]);
+		}
+		for(int i=heights.length-1;i>0;i--) {
+			right[i]= Math.max(right[i], heights[i]);
+		}
+		for(int i=0;i<heights.length-1;i++) {
+			c=c+Math.min(left[i], right[i])-heights[i];
+		}
+		return c;
+	}
+
+}
