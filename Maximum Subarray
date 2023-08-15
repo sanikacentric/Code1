@@ -1,0 +1,11 @@
+public static int maxsubarray(int [] nums) {
+	int currsub= nums[0];
+	int maxsb= nums[0];
+	for(int i=1;i<nums.length;i++) {
+		int num= nums[i];
+		int tempsub= Math.max(currsub+num, maxsb);
+		maxsb= Math.max(maxsb, tempsub);
+	}
+	return maxsb;
+}
+}
