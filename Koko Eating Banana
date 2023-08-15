@@ -1,0 +1,30 @@
+package SeptemberSelenium.SeptemberSelenium;
+
+public class kokoeatgbanan {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+public static int kokoeatgbana(int []piles, int h) {
+	int left=1;int right =1;
+	for(int pile:piles) {
+	right= Math.max(right, pile);
+	}
+	while(left<right) {
+		
+	int mid= left+(right-left)/2;
+	for(int pile:piles) {
+		int x=pile/mid;
+		int hourspent=0;
+		hourspent = hourspent +x;
+		if(hourspent<h) {
+			right=mid;
+		}
+		left=mid+1;
+	}
+	
+}
+	return right;
+}
+}
