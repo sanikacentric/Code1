@@ -1,0 +1,13 @@
+public static int [] dailytemp(int [] temp) {
+	int [] ans = new int [temp.length];
+	Stack<Integer>stack = new Stack();
+	for(int currday =0;currday<temp.length;currday++) {
+		while(stack.isEmpty() || temp[stack.peek()]<temp[currday]) {
+			int prevday = stack.pop();
+			
+		}
+		stack.add(currday);
+	}
+	return ans;
+}
+}
