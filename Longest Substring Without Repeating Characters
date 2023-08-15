@@ -1,0 +1,21 @@
+public static int longestsubwithoutrepchar(String s) {
+	int left =0;
+	int right = 0;
+	int res =0;
+	int [] chars = new int [128];
+	while(right<s.length()) {
+		char r= s.charAt(right);
+		
+	      chars[r]++;
+	      if(chars[r]>1) {
+	    	  char l = s.charAt(left);
+	    	  chars[l]--;
+	    	  left++;
+	      
+		}
+	      res = Math.max(res, right-left+1);
+		
+	}
+	return res;
+}
+}
