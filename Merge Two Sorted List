@@ -1,0 +1,19 @@
+public static ListNode mergetwosorted(ListNode L1, ListNode L2) {
+	if(L1==null) {
+		return L2;
+	}
+	if(L2==null) {
+		return L1;
+	}
+	ListNode head;
+	if(L1.val<L2.val) {
+	
+		head=L1;
+		L1=L1.next;
+	
+	}
+	head= L2;
+	 L2=L2.next;
+	 return mergetwosorted(L1,L2);
+}
+}
