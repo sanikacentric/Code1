@@ -1,0 +1,19 @@
+public static boolean paliandromiclinked(ListNode head) {
+	List<Integer>vals= new ArrayList<>();
+	ListNode currNode= head;
+	while(currNode!=null) {
+		vals.add(currNode.val);
+		currNode=currNode.next;
+	}
+	List<Integer>reversevals= new ArrayList<>();
+	for(int i=vals.size()-1;i>0;i--) {
+		reversevals.add(vals.get(i));
+	}
+	for(int i=0;i<vals.size()-1;i++) {
+		if(vals.get(i)!=reversevals.get(i)) 
+			return false;
+		
+	}
+	return true;
+}
+}
