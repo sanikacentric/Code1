@@ -1,0 +1,45 @@
+package SeptemberSelenium.SeptemberSelenium;
+
+public class mergesortdt {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+public void merge(int[] array) {
+	if(array.length<2) {
+		return;
+	}
+	int middle = array.length/2;
+	int [] left = new int [middle];
+	for(int i=0;i<middle;i++) {
+		left[i]=array[i];
+	}
+	int [] right = new int [array.length-middle];
+	for(int i=middle;i<array.length-1;i++) {
+		right[i-middle]=array[i];
+	}
+	merge(left);
+	merge(right);
+	merging(left, right, array);
+}
+private void merging(int[] left, int[] right, int[] result) {
+	int i=0;
+	int j=0;
+	int k=0;
+	if(i<left.length && j<right.length) {
+		if(left[i]<right[j]) {
+			result[k++]= left[i++];
+		}else {
+		result[k++]= right[j++];
+		}
+		if(i<left.length) {
+			result[k++]= left[i++];
+		}
+		if(j<right.length) {
+			result[k++]= right[j++];
+		}
+	}
+	
+}
+}
